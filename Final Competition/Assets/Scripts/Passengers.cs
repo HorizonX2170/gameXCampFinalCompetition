@@ -7,11 +7,16 @@ public class Passengers : MonoBehaviour
    private void OnTriggerEnter(Collider other)
     {
         busInventory businventory = other.GetComponent<busInventory>();
+        PrometeoCarController prometeoCarController = other.GetComponent<PrometeoCarController>();
 
-        if (businventory != null)
+        if (businventory != null && prometeoCarController != null)
         {
-        businventory.PassangerPickUp();
-        gameObject.SetActive(false);
+        float speedInKmH = prometeoCarController.carSpeed;
+            if (speedInKmH >= 0 && speedInKmH <= 4) 
+            { 
+                businventory.PassangerPickUp();
+                gameObject.SetActive(false);
+            }
         }
     }
 }
