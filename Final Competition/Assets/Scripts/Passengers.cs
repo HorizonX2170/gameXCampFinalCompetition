@@ -12,11 +12,10 @@ public class Passengers : MonoBehaviour
         if (businventory != null && prometeoCarController != null)
         {
         float speedInKmH = prometeoCarController.carSpeed;
-            if (speedInKmH >= 0 && speedInKmH <= 4) 
-            { 
+     
                 businventory.PassangerPickUp();
                 gameObject.SetActive(false);
-            }
+
         }
     }
 }
